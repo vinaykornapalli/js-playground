@@ -1,17 +1,37 @@
- //
  
- 
- var myGreetings = greetings("hii");
- myGreetings("vinay" , "kornapalli");
-console.log(myGreetings);
+function mySyncFunc(){
+    
+    console.log("before the loop");
+    for(let i = 0 ; i < 10000000000 ; i++){
 
-async function helloAsync(){
-   await console.log("this is async call");
+    }
+     console.log("finally finished running the loop");
+}
+console.log("Started executing sync function");
+
+mySyncFunc();
+
+console.log("End of executing sync function");
+
+
+
+
+function myAsyncFunc(){
+
+    console.log("before the loop");
+    setTimeout(function(){
+        for(let i = 0 ; i < 10000000000 ; i++){
+
+        }
+
+        console.log("finally finished running the loop");
+    } , 0)
+    console.log("out of setTimeout API");
 }
 
-function helloSync(){
-    console.log("this is sync call ");
-}
 
-helloAsync();
-helloSync();
+console.log("Started executing async function");
+
+myAsyncFunc();
+
+console.log("End of executing async function");
